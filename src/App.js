@@ -13,32 +13,34 @@ class BooksApp extends React.Component {
     books :[]
   }
  
-   componentDidMount(){
+  async componentDidMount(){
        BooksAPI.getAll().then((books) => {
-      this.setState({ books })
-    })
+         this.setState({books:books})
+       })
+       //console.log(books)
    
    }
 
   render() {
-    console.log(this.state.books)
+    //console.log(this.state.books)
     return (
       <div className="app">
         
-         <Route path='/' component={Search}/>
-          <Route path='/' render={() =>(
+        
+          <Route exact path='/' render={() =>(
           <div className="list-books">
             <div className="list-books-title">
               <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-              <BookShelf />
+              <BookShelf books={this.state.books}/>
             </div>
             <div className="open-search">
               <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
             </div>
           </div>
           )}/>
+           <Route exact path='/Search' component={Search}/>
         </div>
     )
   }
