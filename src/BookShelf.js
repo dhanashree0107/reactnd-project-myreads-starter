@@ -9,7 +9,7 @@ class BookShelf extends Component{
             <div>
         <div className="bookshelf">
         <h2 className="bookshelf-title">Currently Reading</h2>
-        <SingleShelf type='currentlyReadng' Books={this.props.books.filter((book) => 
+        <SingleShelf Books={this.props.books.filter((book) => 
             book.shelf==='currentlyReading')}/>
         </div>
         </div>
@@ -17,7 +17,7 @@ class BookShelf extends Component{
         <div>
         <div className="bookshelf">
         <h2 className="bookshelf-title">Want to Read</h2>
-        <SingleShelf type='wantToRead' Books={this.props.books.filter((book) => 
+        <SingleShelf Books={this.props.books.filter((book) => 
             book.shelf==='wantToRead')}/>
         </div>
         </div>
@@ -25,7 +25,7 @@ class BookShelf extends Component{
         <div>
         <div className="bookshelf">
         <h2 className="bookshelf-title">Read</h2>
-        <SingleShelf type='read' Books={this.props.books.filter((book) => 
+        <SingleShelf Books={this.props.books.filter((book) => 
             book.shelf==='read')}/>
         </div>
         </div>

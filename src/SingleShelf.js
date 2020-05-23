@@ -9,8 +9,8 @@ class SingleShelf extends Component{
           <div className="bookshelf-books">
           <ol className="books-grid">
               {
-                  books.map((book) =>
-                  (<Book key={book.id} book={book}/>))
+                  
+                  <Book key={books}/>
               }
               </ol>
               </div>
