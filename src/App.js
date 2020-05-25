@@ -4,7 +4,7 @@ import './App.css'
 //import Book from './Book'
 import BookShelf from './BookShelf'
 import Search from './Search'
-import { Router } from 'react-router-dom'
+//import { Router } from 'react-router-dom'
 import {Route, Link} from 'react-router-dom'
 
 class BooksApp extends React.Component {
@@ -36,8 +36,7 @@ class BooksApp extends React.Component {
       <div className="app">
         
         
-          {
-          /*
+          
           <Route exact path='/' render={() =>(
           <div className="list-books">
             <div className="list-books-title">
@@ -49,14 +48,16 @@ class BooksApp extends React.Component {
               moveShelf={this.moveShelf}/>
             </div>
             <div className="open-search">
-              <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+              <Link to='/Search'>Add a book</Link>
             </div>
           </div>
           )}/>
-          */
-          }
-           <Search/>
-        </div>
+         
+          <Route path='/Search' render={() =>(
+              <Search 
+              moveShelf={this.moveShelf}/>
+          )} />
+          </div>
     )
   }
 }
