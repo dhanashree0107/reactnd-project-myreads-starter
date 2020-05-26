@@ -36,7 +36,7 @@ class Search extends Component{
         return(<div className="search-books">
         <div className="search-books-bar">
           <Link 
-          to="/" className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</Link>
+          to="/" className="close-search" >Close</Link>
           <div className="search-books-input-wrapper">
             
             <input 
@@ -51,11 +51,19 @@ class Search extends Component{
         <div className="search-books-results">
           <ol className="books-grid">
         {
-          this.state.searchedBooks.map(searchedBook =>
-            <li key={searchedBook.id}>
+          this.state.searchedBooks.map(searchedBook =>{
+            let shelf='none';
+            this.props.books.map(books => 
+              books.id ===searchedBook.id ? 
+              shelf=books.shelf :
+              '')
+
+           return( <li key={searchedBook.id}>
               <Book book={searchedBook}
-              moveShelf={this.props.moveShelf}/>
-            </li>
+              moveShelf={this.props.moveShelf}
+              currentShelf={shelf}/>
+            </li>);
+          }
           )
         }
           </ol>
