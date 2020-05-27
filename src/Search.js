@@ -8,7 +8,8 @@ class Search extends Component{
 
   state={
     query:'',
-    searchedBooks:[]
+    searchedBooks:[],
+    searchError: false
   }
 
   updateQuery = query =>{
@@ -22,13 +23,13 @@ class Search extends Component{
       if(query){
        BooksAPI.search(query).then(searchedBook => {
          if(searchedBook.error){
-          this.setState({searchedBooks : []});
+          this.setState({searchedBooks : [],searchError:true});
          }else{
-          this.setState({searchedBooks : searchedBook})
+          this.setState({searchedBooks : searchedBook ,searchError:false})
          }
        })
       }else{
-        this.setState({searchedBooks : []});
+        this.setState({searchedBooks : [] ,searchError:false});
       }
   }
 
@@ -66,6 +67,9 @@ class Search extends Component{
           }
           )
         }
+        {this.state.searchError && (
+                <h3>{`${this.state.query} Not Found. Please try again!`}</h3>
+            )}
           </ol>
         </div>
       </div>)

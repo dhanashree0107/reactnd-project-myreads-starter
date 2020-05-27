@@ -3,7 +3,7 @@ import React,{Component} from 'react'
 class Book extends Component{
 
     render(){
-      let Thumbnail = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : '';
+      let Thumbnail = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : 'noCover';
         return(<div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${Thumbnail})` }}></div>
